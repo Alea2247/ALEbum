@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Home - My ALEbum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo-box">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" class="site-logo" alt="My ALEbum Logo">
+            </div>
+            <h1 class="site-title">My ALEbum</h1>
+            <nav class="site-nav">
+                <span class="welcome">Hello, {{ username }} 💕</span>
+                <a class="nav-btn" href="{{ url_for('logout') }}">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="home-card">
+            <h2>Your ALEbum is waiting for you!</h2>
+            <p>Start by creating a new album or join one with a code.</p>
+            <p>
+                <a class="cta" href="{{ url_for('create_album') }}">Create album</a>
+                <a class="cta secondary" href="{{ url_for('join_album') }}">Join album</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-left">© {{"%d"|format(2026)}} My ALEbum - All Rights Reserved</div>
+            <div class="footer-center">
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-right">
+                <a class="social" href="#">IG</a>
+                <a class="social" href="#">P</a>
+                <a class="social" href="#">F</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

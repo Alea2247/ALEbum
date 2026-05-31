@@ -1,0 +1,474 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    /* jemný pastel background */
+    background: linear-gradient(135deg, #ffd6e7, #d6e6ff);
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Headings use a Serif font for a classic look */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+/* BUBBLE CARD */
+.auth-container {
+    width: 360px;
+    padding: 36px;
+
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(12px);
+
+    border-radius: 40px;
+
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+
+    text-align: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-container::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 180px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    filter: blur(24px);
+    pointer-events: none;
+}
+
+.auth-container::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+/* HEADER */
+.auth-header h1 {
+    margin: 0;
+    font-size: 26px;
+    color: #333;
+}
+
+/* FORM */
+.auth-main {
+    margin-top: 20px;
+}
+
+.auth-main form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* LABEL TEXT (E-mail / Password) */
+.auth-main form {
+    text-align: left;
+    font-size: 14px;
+    color: #444;
+}
+
+/* INPUTS */
+input {
+    margin-top: 5px;
+    margin-bottom: 15px;
+
+    padding: 12px;
+
+    border-radius: 15px;
+    border: 1px solid rgba(0,0,0,0.1);
+
+    outline: none;
+
+    background: rgba(255,255,255,0.7);
+}
+
+/* INPUT FOCUS */
+input:focus {
+    border: 1px solid #ff7aa2;
+    box-shadow: 0 0 10px rgba(255, 122, 162, 0.3);
+}
+
+/* BUTTON */
+button {
+    padding: 12px;
+    border: none;
+
+    border-radius: 15px;
+
+    background: #ff7aa2;
+    color: white;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    box-shadow: 0 8px 20px rgba(255, 122, 162, 0.3);
+}
+
+button:hover {
+    background: #ff4f86;
+    transform: scale(1.03);
+}
+
+/* LINK */
+a {
+    color: #ff7aa2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #ff4f86;
+}
+
+/* SITE HEADER */
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    background: #b86b73;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    z-index: 1000;
+}
+.logo-box {
+    /* match circle diameter to fit inside header (<= header height) */
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #EEDADC; /* pale pink circle */
+    border-radius: 50%;
+    padding: 0;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+    overflow: hidden;
+    justify-self: start;
+}
+.site-logo {
+    height: 56px;
+    margin-left: -1px; 
+    margin-top: 1px; 
+    width: auto;
+    border-radius: 6px;
+    display: block;
+}
+.site-header .header-inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 6px; /* tighter padding so items sit closer to edges */
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    pointer-events: auto;
+}
+.site-title {
+    margin: 0;
+    font-size: 22px;
+    color: #fff;
+    justify-self: center;
+    text-align: center;
+    letter-spacing: 0.6px;
+    transform: translateX(60px); /* nudge slightly to the right to appear visually centered */
+}
+.site-nav {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    margin-right: 0; /* ensure nav sits at the right padding edge */
+}
+.site-nav .welcome {
+    color: rgba(255,255,255,0.95);
+    margin-right: 12px;
+    font-weight: 600;
+}
+.nav-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.18);
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 8px;
+}
+.nav-btn:hover {
+    background: #CA9096;
+    color: #fff;
+}
+.nav-btn.secondary {
+    background: #fff;
+    color: #b86b73;
+    border: 1px solid rgba(0,0,0,0.06);
+}
+.nav-btn, .nav-btn.secondary {
+    transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+.nav-btn.secondary:hover {
+    background: #CA9096;
+    color: #fff;
+    border-color: #CA9096;
+}
+
+/* HERO */
+.site-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+.hero .hero-card {
+    max-width: 760px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 20px;
+    padding: 28px;
+    text-align: center;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    border: 1px solid rgba(255,255,255,0.35);
+}
+
+.hero-image {
+    /* Full-width hero background pinned under header and above footer */
+    position: fixed;
+    left: 0;
+    top: 72px; /* place right under header */
+    width: 100vw; /* span full viewport width */
+    height: calc(100vh - 72px - 48px);
+    display: block;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    object-fit: cover;
+    z-index: 40; /* behind the About card */
+}
+
+/* Make main content avoid the fixed image */
+.site-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    margin-left: 0; /* no left margin when hero spans full width */
+}
+
+/* Responsive fallback: on small screens show image normally and remove left margin */
+@media (max-width: 900px) {
+    .hero-image {
+        position: static;
+        width: calc(100% - 40px);
+        max-width: none;
+        min-width: 0;
+        margin: 6px auto 22px;
+        border-radius: 18px;
+        box-shadow: 0 18px 50px rgba(0,0,0,0.14);
+        border: 1px solid rgba(255,255,255,0.28);
+    }
+
+    .site-main {
+        margin-left: 0;
+        padding-top: 120px;
+    }
+}
+.about {
+    margin-top: 28px;
+    max-width: 760px;
+    text-align: center;
+    color: #444;
+}
+.home-card {
+    max-width: 720px;
+    background: #da2537;
+    border-radius: 20px;
+    padding: 28px;
+    text-align: center;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    border: 1px solid rgba(255,255,255,0.35);
+}
+.cta {
+    display: inline-block;
+    margin: 8px 12px;
+    padding: 10px 18px;
+    background: #ff7aa2;
+    color: #fff;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+}
+.cta {
+    transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+.cta.secondary {
+    background: #fff;
+    color: #ff7aa2;
+    border: 1px solid rgba(255,122,162,0.12);
+}
+.cta:hover {
+    background: #CA9096;
+    color: #fff;
+}
+.cta.secondary:hover {
+    background: #CA9096;
+    color: #fff;
+    border-color: #CA9096;
+}
+
+.site-footer{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    padding: 4px 0; /* slightly smaller vertical padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgba(255,255,255,0.9);
+    background: #b86b73;
+    height: 40px; /* slightly shorter footer */
+}
+.footer-inner{
+    width: 100%;
+    max-width: 1200px; /* match header container */
+    margin: 0 auto;
+    padding: 0 2px; /* move items even closer to the viewport edges */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+}
+.footer-left{
+    justify-self: start;
+    color: rgba(255,255,255,0.95);
+}
+.footer-center{
+    justify-self: center;
+}
+.footer-center a{
+    color: rgba(255,255,255,0.95);
+    margin: 0 10px;
+    font-size: 13px;
+    text-decoration: none;
+}
+.footer-right{
+    justify-self: end;
+}
+.social{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    margin-left: 8px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* ABOUT CARD (right-side bubble) */
+.about {
+    position: relative;
+}
+.about-card {
+    /* center in the viewport */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px;
+    max-width: 90vw;
+    min-height: 200px; /* increased height */
+    max-height: calc(100vh - 160px);
+    overflow: auto;
+    background: rgba(255,255,255,0.88); /* slightly more see-through */
+    border-radius: 16px;
+    padding: 36px 40px; /* more vertical padding */
+    box-shadow: 0 24px 50px rgba(0,0,0,0.18);
+    border: 1px solid rgba(255,255,255,0.6);
+    backdrop-filter: blur(6px); /* subtle glass blur */
+    z-index: 200; /* keep above hero image and footer */
+}
+.about-title {
+    margin: 0 0 10px 0;
+    font-size: 44px; /* larger title */
+    color: #8b3b41;
+}
+.about-text {
+    color: #444;
+    line-height: 1.6;
+    font-size: 18px; /* larger body text */
+    margin-bottom: 22px;
+}
+.about-actions {
+    margin-top: 8px;
+}
+.about-card .cta {
+    box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+}
+
+/* About-card specific button styles to match page colors */
+.about-card .cta {
+    background: #b86b73; /* page maroon */
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 14px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 12px 30px rgba(184,107,115,0.12);
+}
+.about-card .cta.secondary {
+    background: #fff;
+    color: #b86b73;
+    border: 1px solid rgba(184,107,115,0.14);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.about-card .cta, .about-card .cta.secondary {
+    transition: background 180ms ease, transform 180ms ease, color 180ms ease;
+}
+.about-card .cta:hover, .about-card .cta.secondary:hover {
+    background: #CA9096;
+    color: #fff;
+    transform: translateY(-3px);
+    border-color: #CA9096;
+}
+
+@media (max-width: 900px) {
+    .about-card {
+        position: static;
+        width: calc(100% - 40px);
+        margin: 12px auto 0;
+        transform: none;
+        right: auto;
+        top: auto;
+    }
+}

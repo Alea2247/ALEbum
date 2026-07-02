@@ -628,8 +628,9 @@ a:hover {
 
 .albums-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
     gap: 18px;
+    justify-content: start;
 }
 
 .album-tile {
@@ -647,6 +648,10 @@ a:hover {
     justify-content: center;
     gap: 8px;
     transition: transform 160ms ease, background 160ms ease;
+}
+
+.album-tile:nth-child(-n+2) {
+    margin-top: 20px;
 }
 
 .album-tile:hover {
@@ -687,5 +692,88 @@ a:hover {
     .dashboard-header {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+@media (max-width: 500px) {
+    .site-main.albums-dashboard {
+        padding-top: 140px;
+    }
+
+    .albums-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    .album-tile {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .album-tile:nth-child(-n+2) {
+        margin-top: 20px;
+    }
+
+    .site-header.site-header-library {
+        height: auto;
+        padding: 12px 0;
+    }
+
+    .header-inner.header-library {
+        grid-template-columns: auto 1fr;
+        gap: 12px;
+        padding: 12px;
+        align-items: flex-start;
+    }
+
+    .header-branding {
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .logo-box {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .site-logo {
+        height: 56px;
+    }
+
+    .header-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding-top: 6px;
+        width: 100%;
+    }
+
+    .site-title-library {
+        font-size: 24px;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        line-height: 1.2;
+        display: block;
+        letter-spacing: 0 !important;
+        word-spacing: normal;
+        transform: none !important;
+    }
+
+    .site-subtitle {
+        font-size: 16px;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        line-height: 1.2;
+        display: block;
+        letter-spacing: 0;
+        word-spacing: normal;
     }
 }

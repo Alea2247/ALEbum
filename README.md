@@ -2,6 +2,7 @@
 
 A simple static HTML photo album site. No backend required - just open `index.html` in your browser.
 
+
 ## Files
 
 - **index.html** - Main albums library page

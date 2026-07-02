@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Album - My ALEbum</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body class="page-library">
+    <header class="site-header site-header-library">
+        <div class="header-inner header-library">
+            <div class="header-branding">
+                <div class="logo-box">
+                    <img src="static/img/logo.png" class="site-logo" alt="My ALEbum Logo">
+                </div>
+                <div class="header-copy">
+                    <h1 class="site-title site-title-library">Create Album</h1>
+                    <p class="site-subtitle">Start a new shared space</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main upload-page">
+        <section class="upload-card" style="max-width: 600px;">
+            <h2>Create a new album</h2>
+            <p>Give your album a name and start sharing photos.</p>
+
+            <form class="upload-form" onsubmit="handleCreateAlbum(event)">
+                <input type="text" name="album-name" placeholder="Album name" required>
+                <button type="submit">Create album</button>
+            </form>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="index.html" style="color: #b86b73; text-decoration: none; font-weight: bold;">← Back</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function handleCreateAlbum(event) {
+            event.preventDefault();
+            const albumName = event.target['album-name'].value;
+            alert(`Album "${albumName}" would be created!\n\nSince this is HTML-only, you can manually add links to new album pages in index.html`);
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>

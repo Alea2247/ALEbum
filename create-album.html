@@ -26,10 +26,18 @@
             <h2>Create a new album</h2>
             <p>Give your album a name and start sharing photos.</p>
 
-            <form class="upload-form" onsubmit="handleCreateAlbum(event)">
+            <form class="upload-form" data-create-album-form>
                 <input type="text" name="album-name" placeholder="Album name" required>
+                <label class="cover-picker">
+                    <span>Add a cover image</span>
+                    <input type="file" name="cover-image" accept="image/*" capture="environment">
+                </label>
                 <button type="submit">Create album</button>
             </form>
+
+            <p class="cover-hint">Choose from your gallery or folders, or take a new photo on a phone or tablet.</p>
+
+            <p class="album-message" data-form-status></p>
 
             <div style="text-align: center; margin-top: 20px;">
                 <a href="index.html" style="color: #b86b73; text-decoration: none; font-weight: bold;">← Back</a>
@@ -37,13 +45,6 @@
         </section>
     </main>
 
-    <script>
-        function handleCreateAlbum(event) {
-            event.preventDefault();
-            const albumName = event.target['album-name'].value;
-            alert(`Album "${albumName}" would be created!\n\nSince this is HTML-only, you can manually add links to new album pages in index.html`);
-            event.target.reset();
-        }
-    </script>
+    <script src="static/app.js" defer></script>
 </body>
 </html>

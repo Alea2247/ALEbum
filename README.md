@@ -1,37 +1,35 @@
-# ALEbum - HTML Version
+# ALEbum - Flask + HTML
 
-A simple static HTML photo album site. No backend required - just open `index.html` in your browser.
+A simple photo album app with HTML frontend pages, a small JavaScript client, and a Flask backend that stores albums in SQLite.
 
 
 ## Files
 
+- **app.py** - Flask app and SQLite API
 - **index.html** - Main albums library page
-- **album-1.html** - Sample album (Summer 2024)
-- **album-2.html** - Sample album (Travels)
 - **create-album.html** - Create new album page
-- **upload-album-1.html** - Upload photos to Summer 2024 album
-- **upload-album-2.html** - Upload photos to Travels album
+- **static/app.js** - Browser-side JavaScript that talks to Flask
 - **static/styles.css** - All styling
 - **static/img/** - Logo and images
+- **albums.db** - SQLite database created on first run
 
 ## How to use
 
-1. Open `index.html` in your web browser
-2. Click on an album to view photos
-3. Click "Add picture" to upload photos (choose from your device)
-4. Click "Create new album" to add a new album
+1. Install Python dependencies with `pip install -r requirements.txt`
+2. Run `python app.py`
+3. Open `http://127.0.0.1:5000/`
+4. Create albums from the browser and they will be saved in SQLite
 
 ## Notes
 
-This is a static HTML site. Photo uploads show file selections but aren't permanently saved since there's no backend server. To add new albums permanently:
+The Flask backend exposes `GET /api/albums` and `POST /api/albums`.
+The frontend pages use `fetch()` to load and create albums against that API.
 
-1. Create a copy of `album-1.html` or `album-2.html`
-2. Name it `album-3.html` (or your preferred name)
-3. Update the title and content
-4. Add a link to it in `index.html`
+If you want photo uploads or album detail pages next, those can be added as extra Flask routes and database tables.
 
 ## Customization
 
-- Edit any `.html` file to change titles and descriptions
+- Edit the HTML files to change page structure and copy
+- Modify `static/app.js` to change API calls or page behavior
 - Modify `static/styles.css` for styling changes
 - Add your own logo to `static/img/logo.png`

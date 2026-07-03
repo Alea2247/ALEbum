@@ -469,6 +469,41 @@ a:hover {
     margin-top: 22px;
 }
 
+.cover-picker {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.78);
+    color: #b86b73;
+    font-weight: 700;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+    padding: 0 16px;
+}
+
+.cover-picker span {
+    pointer-events: none;
+}
+
+.cover-picker input {
+    width: 100%;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+}
+
+.cover-hint {
+    margin-top: 10px;
+    font-size: 14px;
+    color: rgba(111,57,64,0.8);
+}
+
 .file-picker {
     position: relative;
     display: inline-flex;
@@ -648,6 +683,32 @@ a:hover {
     justify-content: center;
     gap: 8px;
     transition: transform 160ms ease, background 160ms ease;
+}
+
+.album-cover {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f4d9de, #e8eefc);
+    border: 1px solid rgba(184,107,115,0.12);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.album-cover-placeholder {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(111,57,64,0.68);
 }
 
 .album-tile:nth-child(-n+2) {

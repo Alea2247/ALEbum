@@ -22,6 +22,9 @@ instance/
 # Uploads
 uploads/
 
+# SQLite database
+albums.db
+
 # IDEs and OS files
 .vscode/
 .idea/
